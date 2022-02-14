@@ -29,7 +29,7 @@ Dillinger uses a number of open source projects to work properly:
 
 - [Git](https://git-scm.com/) - Git is a free and open source distributed version control system designed to handle everything from small to very large projects with speed and efficiency.
 - [Java](https://www.java.com/en/) - Java is a programming language and computing platform first released by Sun Microsystems in 1995. Install Java 8 and Java 11.
-- [Android Studio](https://developer.android.com/studio) - Android Studio provides the fastest tools for building apps on every type of Android device. Version Arctic Fox | 2020.3.1 Patch 3.
+- [Android Studio](https://developer.android.com/studio) - Android Studio provides the fastest tools for building apps on every type of Android device. Version Bumblebee | 2021.2.1 Patch 1.
 
 ## screenshots
 
@@ -53,7 +53,7 @@ Dillinger uses a number of open source projects to work properly:
 Clone the repository.
 
 ```bash
-git clone git@github.com:luchonetvv/points-of-interest.git
+git clone https://github.com/NYK0de/Places.git
 git status
 ```
 
