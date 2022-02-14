@@ -1,22 +1,21 @@
 package com.assessment.findplaces.ui.places
 
+import android.app.Application
 import android.location.Location
-import androidx.lifecycle.LiveData
-import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.ViewModel
-import androidx.lifecycle.viewModelScope
+import androidx.lifecycle.*
+import com.assessment.findplaces.data.database.getDatabase
 import com.assessment.findplaces.domain.GetPlaceUseCase
-import com.assessment.findplaces.domain.Place
-import kotlinx.coroutines.delay
+import com.assessment.findplaces.domain.model.PlaceModel
+import com.assessment.findplaces.ui.details.PlaceDetailViewModel
 import kotlinx.coroutines.launch
 
-class PlacesViewModel : ViewModel() {
+class PlacesViewModel (application: Application) : ViewModel() {
+    private val database = getDatabase(application)
+    private var getPlacesUseCase = GetPlaceUseCase(database)
 
-    private var getPlacesUseCase = GetPlaceUseCase()
+    private val _nearByPlaces = MutableLiveData<List<PlaceModel>>()
 
-    private val _nearByPlaces = MutableLiveData<List<Place>>()
-
-    val nearByPlaces : LiveData<List<Place>> = _nearByPlaces
+    val nearByPlaces : LiveData<List<PlaceModel>> = _nearByPlaces
     val isLoading = MutableLiveData<Boolean>(false)
 
     fun getPlaces(location: Location, keyword: String, radius: Int){

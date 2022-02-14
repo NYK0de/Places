@@ -5,5 +5,6 @@
     <string name="title_settings">Preferencias</string>
     <string name="search">Buscar</string>
     <string name="search_message_empty">Debe digitar una palabra clave</string>
-    <string name="load_place_error">No places found</string>
+    <string name="load_place_error">No se encontró lugares</string>
+    <string name="reviews">Reseñas</string>
 </resources>

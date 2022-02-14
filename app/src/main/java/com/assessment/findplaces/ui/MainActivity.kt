@@ -20,17 +20,11 @@ class MainActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMainBinding
 
-
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
         binding = ActivityMainBinding.inflate(layoutInflater)
         supportActionBar?.hide()
-        /*val window = this.window
-        window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS)
-        window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS)
-        window.statusBarColor = Color.TRANSPARENT*/
         setContentView(binding.root)
 
         val navView: BottomNavigationView = binding.navView
@@ -48,11 +42,11 @@ class MainActivity : AppCompatActivity() {
         setupActionBarWithNavController(navController, appBarConfiguration)
         navView.setupWithNavController(navController)
 
-        navController.addOnDestinationChangedListener { controller, destination, arguments ->
-            if (destination.id == R.id.navigation_places) {
-                //supportActionBar?.hide()
-            } else {
+        navController.addOnDestinationChangedListener { _, destination, _ ->
+            if (destination.id == R.id.placeDetailFragment) {
                 //supportActionBar?.show()
+            } else {
+                //supportActionBar?.hide()
             }
         }
     }

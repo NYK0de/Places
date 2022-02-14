@@ -3,12 +3,19 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/yarin/Desktop/Sosafe/FindPlaces/FindPlaces/app/src/main/res/drawable-anydpi/ic_action_back.xml" value="0.2395" />
+        <entry key="..\:/Users/yarin/Desktop/Sosafe/FindPlaces/FindPlaces/app/src/main/res/drawable-anydpi/ic_action_back_circle.xml" value="0.1195" />
+        <entry key="..\:/Users/yarin/Desktop/Sosafe/FindPlaces/FindPlaces/app/src/main/res/drawable/ic_fav_filled.xml" value="0.1195" />
+        <entry key="..\:/Users/yarin/Desktop/Sosafe/FindPlaces/FindPlaces/app/src/main/res/drawable/img_fav.xml" value="0.1195" />
         <entry key="..\:/Users/yarin/Desktop/Sosafe/FindPlaces/FindPlaces/app/src/main/res/layout/activity_main.xml" value="0.25052083333333336" />
+        <entry key="..\:/Users/yarin/Desktop/Sosafe/FindPlaces/FindPlaces/app/src/main/res/layout/favorites_card.xml" value="0.4" />
         <entry key="..\:/Users/yarin/Desktop/Sosafe/FindPlaces/FindPlaces/app/src/main/res/layout/fragment_favorites.xml" value="0.25052083333333336" />
         <entry key="..\:/Users/yarin/Desktop/Sosafe/FindPlaces/FindPlaces/app/src/main/res/layout/fragment_home.xml" value="0.25052083333333336" />
-        <entry key="..\:/Users/yarin/Desktop/Sosafe/FindPlaces/FindPlaces/app/src/main/res/layout/fragment_place_detail.xml" value="0.25052083333333336" />
+        <entry key="..\:/Users/yarin/Desktop/Sosafe/FindPlaces/FindPlaces/app/src/main/res/layout/fragment_place_detail.xml" value="0.24882629107981222" />
         <entry key="..\:/Users/yarin/Desktop/Sosafe/FindPlaces/FindPlaces/app/src/main/res/layout/fragment_places.xml" value="0.22485207100591717" />
         <entry key="..\:/Users/yarin/Desktop/Sosafe/FindPlaces/FindPlaces/app/src/main/res/layout/fragment_settings.xml" value="0.25052083333333336" />
+        <entry key="..\:/Users/yarin/Desktop/Sosafe/FindPlaces/FindPlaces/app/src/main/res/layout/review_card.xml" value="0.25052083333333336" />
+        <entry key="..\:/Users/yarin/Desktop/Sosafe/FindPlaces/FindPlaces/app/src/main/res/menu/bottom_nav_menu.xml" value="0.25052083333333336" />
       </map>
     </option>
   </component>

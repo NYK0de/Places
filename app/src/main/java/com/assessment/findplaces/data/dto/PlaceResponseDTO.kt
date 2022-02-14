@@ -1,6 +1,6 @@
 package com.assessment.findplaces.data.dto
 
-import com.assessment.findplaces.domain.Place
+import com.assessment.findplaces.domain.model.PlaceModel
 import com.google.gson.annotations.SerializedName
 
 /**
@@ -21,7 +21,7 @@ data class PlaceDTO(
     val geometry: Geometry,
 )
 
-fun PlaceDTO.toDomain() = Place(
+fun PlaceDTO.toDomain() = PlaceModel(
     placeId = placeID,
     name = name,
     latitude = geometry.location.lat,

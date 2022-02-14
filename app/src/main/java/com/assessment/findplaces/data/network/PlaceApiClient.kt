@@ -1,5 +1,6 @@
 package com.assessment.findplaces.data.network
 
+import com.assessment.findplaces.data.dto.PlaceDetailResponseDTO
 import com.assessment.findplaces.data.dto.PlaceResponseDTO
 import retrofit2.Response
 import retrofit2.http.GET
@@ -19,6 +20,11 @@ interface PlaceApiClient {
         @Query("keyword") keyword: String,
         @Query("radius") radius: Int
     ) : Response<PlaceResponseDTO>
+
+    @GET("details/json?fields=place_id,name,formatted_phone_number,formatted_address,photos,rating,reviews,user_ratings_total,geometry")
+    suspend fun getPlaceDetail(
+        @Query("place_id") placeId: String,
+    ) : Response<PlaceDetailResponseDTO>
 
 
 }

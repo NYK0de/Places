@@ -7,11 +7,13 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.fragment.findNavController
 import com.assessment.findplaces.R
 import com.assessment.findplaces.databinding.FragmentPlacesBinding
-import com.assessment.findplaces.domain.Place
+import com.assessment.findplaces.domain.model.PlaceModel
+import com.assessment.findplaces.ui.details.PlaceDetailViewModel
+import com.assessment.findplaces.ui.utils.viewmodelfactory.ViewModelFactory
 import com.google.android.gms.maps.CameraUpdateFactory
 import com.google.android.gms.maps.GoogleMap
 import com.google.android.gms.maps.OnMapReadyCallback
@@ -46,10 +48,17 @@ class PlacesFragment : Fragment(), GoogleMap.OnCameraIdleListener, GoogleMap.OnM
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        placesViewModel = ViewModelProvider(this).get(PlacesViewModel::class.java)
+        val activity = requireNotNull(this.activity)
+        placesViewModel = ViewModelProvider(
+                this,
+                ViewModelFactory(activity.application)
+            ).get(PlacesViewModel::class.java)
+
+
         _binding = FragmentPlacesBinding.inflate(inflater, container, false)
         binding.loadingBar.visibility = View.INVISIBLE
         position = Location("")
+
         placesViewModel.isLoading.observe(viewLifecycleOwner) { loading ->
             binding.loadingBar.visibility = if (loading) View.VISIBLE else View.GONE
         }
@@ -80,7 +89,7 @@ class PlacesFragment : Fragment(), GoogleMap.OnCameraIdleListener, GoogleMap.OnM
         mapFragment?.getMapAsync(callback)
     }
 
-    private fun setMarkersOnMap( places: List<Place> ){
+    private fun setMarkersOnMap( places: List<PlaceModel> ){
         if (places.isEmpty()){
             Toast.makeText(context, R.string.load_place_error, Toast.LENGTH_LONG).show()
         }
@@ -89,7 +98,7 @@ class PlacesFragment : Fragment(), GoogleMap.OnCameraIdleListener, GoogleMap.OnM
             places.map { place ->
                 map.addMarker(
                     MarkerOptions()
-                        .position(LatLng(place.latitude, place.longitude))
+                        .position(LatLng(place.latitude ?: 0.0, place.longitude ?: 0.0))
                         .title(place.name)
                 )?.tag = place.placeId
             }
@@ -102,8 +111,13 @@ class PlacesFragment : Fragment(), GoogleMap.OnCameraIdleListener, GoogleMap.OnM
         placesViewModel.getPlaces(position, binding.searchKeywordBox.text.toString(), 1500)
     }
 
-    override fun onMarkerClick(p0: Marker): Boolean {
-
+    override fun onMarkerClick(pointSelected: Marker): Boolean {
+        val action = PlacesFragmentDirections.actionNavigationPlacesToPlaceDetailFragment(
+            pointSelected.tag.toString(),
+            true,
+            pointSelected.title.toString()
+        )
+        findNavController().navigate(action)
         return false
     }
 
