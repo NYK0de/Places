@@ -1,12 +1,12 @@
 # App to search places
 
-application made natively with kotlin in which the google places API is consumed to bring places of interest to the user
+Application made natively with kotlin in which the google places API is consumed to bring places of interest to the user
 
 ## Features
 
 - Search places based on a location selected on map and on a keyword given by the user
-- see the list of places
-- go to the details view when tap a marker on the map
+- See the list of places
+- Go to the details view when tap a marker on the map
 - In Details screen you can save as favorite the place you are watching
 - You can see the places that you save in the tab "favorites"
 
